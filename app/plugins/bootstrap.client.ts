@@ -1,4 +1,4 @@
-// Plugin sólo en cliente para inicializar componentes JS de Bootstrap
+// Plugin sólo en cliente para inicializar componentes JS de Bootstrap.
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 export default defineNuxtPlugin(() => {
