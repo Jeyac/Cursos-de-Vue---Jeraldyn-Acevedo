@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --pink: #ff69b4;
+  --purple: #7a3cff;
+  --light-blue: #7dd3fc;
+  --pastel-blue: #d6f0ff;
+  --pastel-pink: #ffb3d1;
+  --pastel-sky: #b3e5fc;
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Quicksand', sans-serif;
+  --font-script: 'Dancing Script', cursive;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #515151;
+  background: var(--pastel-blue);
+  background-attachment: fixed;
+}
+
+/* Professional Navbar */
+.professional-navbar {
+  background: var(--pink) !important;
+  box-shadow: 0 4px 20px rgba(255,105,180,0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.3s ease;
+  z-index: 1050 !important;
+  position: relative;
+}
+
+.professional-brand {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.professional-brand:hover {
+  transform: translateY(-2px);
+  color: #f8f9fa !important;
+}
+
+.brand-icon {
+  font-size: 1.6rem;
+  color: #ffd700;
+  animation: pulse 2s infinite;
+}
+
+.brand-text {
+  font-family: var(--font-script);
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
+
+.professional-link {
+  color: #fff !important;
+  font-weight: 500;
+  padding: 0.75rem 1rem !important;
+  margin: 0 0.25rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.professional-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.professional-link:hover::before {
+  left: 100%;
+}
+
+.professional-link:hover {
+  background: rgba(255,255,255,0.15) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,105,180,0.3);
+}
+
+.professional-dropdown {
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(15px);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  margin-top: 0.25rem;
+  padding: 0.25rem 0;
+  animation: slideDown 0.3s ease;
+  z-index: 1060 !important;
+  position: absolute;
+  max-height: 70vh;
+  overflow-y: auto;
+  min-width: 200px;
+  max-width: 250px;
+}
+
+.professional-dropdown-item {
+  color: #333 !important;
+  padding: 0.4rem 0.8rem !important;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 6px;
+  margin: 0.1rem 0.3rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.professional-dropdown-item:hover {
+  background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-sky)) !important;
+  color: #333 !important;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(255,105,180, 0.3);
+}
+
+.professional-dropdown-item i {
+  color: var(--pink);
+  transition: color 0.3s ease;
+  font-size: 0.8rem;
+  width: 16px;
+  text-align: center;
+}
+
+.professional-dropdown-item:hover i {
+  color: #333;
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.professional-link[aria-expanded="true"] .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.professional-toggler {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.professional-toggler:hover {
+  background: rgba(255,255,255,0.1);
+  transform: scale(1.05);
+}
+
+.professional-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .professional-dropdown {
+    margin-top: 0;
+    border-radius: 0 0 8px 8px;
+    max-height: 60vh;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .professional-link {
+    margin: 0.25rem 0;
+  }
+  
+  .professional-dropdown-item {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.85rem;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 576px) {
+  .professional-dropdown {
+    max-height: 50vh;
+  }
+  
+  .professional-dropdown-item {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.8rem;
+    gap: 0.3rem;
+  }
+  
+  .professional-dropdown-item i {
+    font-size: 0.7rem;
+    width: 14px;
+  }
+}
+
+/* Cards / containers */
+.card {
+  border: none;
+  box-shadow: 0 10px 25px rgba(122,60,255,0.15);
+  border-radius: 14px;
+}
+.card-header {
+  background: linear-gradient(90deg, var(--light-blue), var(--pink));
+  color: #1f2937;
+  border: none;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+/* Page Content Centering */
+.container-fluid, .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.hero-title {
+  font-family: var(--font-script);
+  font-size: 3.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--purple), var(--pink), var(--light-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.hero-subtitle {
+  font-family: var(--font-primary);
+  font-style: italic;
+  color: #6b7280;
+  margin-top: .75rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* Lessons Overview */
+.lessons-overview {
+  margin-top: 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.lesson-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,105,180,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pink), var(--pastel-sky));
+}
+
+.lesson-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255,105,180,0.2);
+  border-color: var(--pink);
+}
+
+.lesson-header {
+  margin-bottom: 1rem;
+}
+
+.lesson-title {
+  font-family: var(--font-primary);
+  color: var(--pink);
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-style: italic;
+}
+
+.lesson-title i {
+  color: var(--pastel-sky);
+}
+
+.lesson-description {
+  font-family: var(--font-secondary);
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  min-height: 2.5rem;
+  font-weight: 400;
+}
+
+.btn-lesson {
+  font-family: var(--font-secondary);
+  background: linear-gradient(135deg, var(--pink), var(--pastel-sky));
+  border: none;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(255,105,180,0.3);
+}
+
+.btn-lesson:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,105,180,0.4);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-lesson i {
+  transition: transform 0.3s ease;
+}
+
+.btn-lesson:hover i {
+  transform: translateX(3px);
+}
+
+/* Estilos para lección activa en el menú */
+.active-lesson {
+  background: linear-gradient(135deg, var(--pink), var(--pastel-sky)) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(255,105,180, 0.4) !important;
+}
+
+.active-lesson i {
+  color: #fff !important;
+}
+
+.current-badge {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 0.1rem 0.3rem;
+  border-radius: 8px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-left: auto;
+  animation: pulse 2s infinite;
+  white-space: nowrap;
+}
+
