@@ -2,7 +2,7 @@
 const emit = defineEmits(['response'])
 
 function reply() {
-  emit('response', 'Mensaje desde el hijo')
+  emit('response', 'Mensaje desde el hijo.')
 }
 </script>
 
